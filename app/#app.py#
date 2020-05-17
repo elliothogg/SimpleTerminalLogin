@@ -1,0 +1,7 @@
+course = 'python programming'
+
+uppercase = course.upper()
+
+
+print(course.title())
+
