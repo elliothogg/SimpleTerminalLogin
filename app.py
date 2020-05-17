@@ -1,25 +1,25 @@
 import getpass
 users = {}
+answer = ""
 
 def initial_menu():
-    answer = input("Are you already registered? Y/N: ")
+    answer = input("Are you already registered? y/n: ")
     if answer == "y":
         existing_user()
     elif answer == "n":
         new_user()
     else:
-        print("Please enter either Y or N.")
+        print("Please enter either y or n.")
         initial_menu()
 
 
 def existing_user():
     check_user = input ("Please enter your username: ")
-    if check_user in users:
-        check_password = input ("Please enter your password: ")
-        check_password = users[check_user]
+    check_password = input ("Please enter your password: ")
+    if check_user in users and check_password == users[check_user]:
         print("login succesful")
-    elif check_user not in users:
-        print("username already in use...returning to main menu")
+    else:
+        print("username or password incorrect...returning to main menu")
         initial_menu()
 
 
@@ -35,5 +35,3 @@ def new_user():
         existing_user()
 
 initial_menu()
-
-
